@@ -12,6 +12,11 @@ The primary metric expected to improve is Paid Conversion Rate.
 
 Before making a recommendation, we must evaluate whether the Treatment group demonstrates a meaningful improvement in conversion while ensuring that guardrail metrics such as refund rate, support ticket rate, and engagement score do not deteriorate.
 
+Data Quality Check:
+- Checked dataset for duplicate user IDs.
+- Found 8 duplicate user IDs and removed them using Excel's Remove Duplicates feature.
+- Final dataset contains 1400 unique users.
+- No major data quality issues impacting analysis were observed after cleaning.
 
 ## North Star Metric
 
