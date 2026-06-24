@@ -41,3 +41,81 @@ If only conversion is optimized, the company may experience higher refunds, incr
 
 
 
+## Data Quality Findings
+
+### Missing Values Analysis
+
+The dataset was checked for missing values across all columns.
+
+| Column               | Missing Values |
+| -------------------- | -------------- |
+| user_id              | 0              |
+| experiment_group     | 0              |
+| region               | 0              |
+| device_type          | 18             |
+| traffic_source       | 24             |
+| plan_type            | 0              |
+| visited_landing_page | 0              |
+| started_trial        | 0              |
+| completed_onboarding | 0              |
+| converted_to_paid    | 0              |
+| revenue_30d          | 0              |
+| support_tickets_30d  | 0              |
+| refund_requested     | 0              |
+| days_to_convert      | 1336           |
+| engagement_score     | 14             |
+
+### Group Distribution Check
+
+The experiment groups were validated to ensure proper distribution.
+
+| Group     | User Count |
+| --------- | ---------- |
+| Control   | 693        |
+| Treatment | 715        |
+
+The experiment groups are reasonably balanced and suitable for comparison.
+
+### Duplicate User ID Check
+
+A duplicate user ID assessment was performed.
+
+| Check              | Result |
+| ------------------ | ------ |
+| Duplicate User IDs | 7      |
+
+A total of 7 duplicate user records were identified. These records should be reviewed before finalizing business recommendations to avoid double-counting users.
+
+### Invalid Binary Value Check
+
+Binary fields were checked to ensure they contain only valid values (0 or 1).
+
+| Column               | Invalid Values |
+| -------------------- | -------------- |
+| visited_landing_page | 0              |
+| started_trial        | 0              |
+| completed_onboarding | 0              |
+| converted_to_paid    | 0              |
+| refund_requested     | 0              |
+
+No invalid binary values were detected.
+
+### Revenue Outlier Assessment
+
+A revenue outlier review was performed using a revenue distribution chart.
+
+Several high-value revenue observations were identified. These values appear to be legitimate business outcomes rather than data entry errors and will be monitored during experiment analysis.
+
+### Data Quality Summary
+
+* 18 missing values found in device_type.
+* 24 missing values found in traffic_source.
+* 14 missing values found in engagement_score.
+* 1336 missing values found in days_to_convert, which is expected for users who never converted.
+* 7 duplicate user IDs identified.
+* No invalid binary values detected.
+* Revenue distribution contains outliers requiring monitoring during analysis.
+
+### Data Cleaning Decision
+
+The dataset was retained for further analysis. Missing values in segmentation fields will be treated as "Unknown" where necessary. Missing days_to_convert values were preserved because they represent users who did not convert rather than data quality issues.
